@@ -12,3 +12,14 @@ void Start () {
 	// do something...
 }
 ```
+
+Note:
+You'd better change the value of macroes in KeyChain.mm:
+
+```
+#define SERVICE_NAME    @"my_service_name"
+#define IDENTIFIER      @"my_app_identifier"
+#define ACOUNT_ID       @"my_account"
+```
+
+

@@ -12,9 +12,9 @@
 #import <UIKit/UIKit.h>
 #import <Security/Security.h>
 
-#define SERVICE_NAME    @"jp.toei.pandemica.deviceid"
-#define IDENTIFIER      @"jp.toei.pandemica"
-#define ACOUNT_ID       @"panda"
+#define SERVICE_NAME    @"my_service_name"
+#define IDENTIFIER      @"my_app_identifier"
+#define ACOUNT_ID       @"my_account"
 
 extern "C" {
     int _Get(const char *account);
