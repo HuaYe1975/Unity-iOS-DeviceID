@@ -6,10 +6,15 @@ public class TestDeviceID : MonoBehaviour {
 	public Text deviceID = null;
 	// Use this for initialization
 	void Start () {
-		string password = DeviceIDManager.GetDeviceID();
-		if (!string.IsNullOrEmpty(password)) {
-			deviceID.text = password;
-		}
+        DeviceIDManager.deviceIDHandler += (string deviceid) => {
+
+            if (!string.IsNullOrEmpty(deviceid))
+            {
+                deviceID.text = deviceid;
+            }
+            
+        };
+		DeviceIDManager.GetDeviceID();
 	}
 	
 	// Update is called once per frame

@@ -1,14 +1,40 @@
 # Unity-iOS-DeviceID
-Use keychain to solve SystemInfo.deviceUniqueIdentifier for iOS.
+UDID solution for Android/iOS.
+
+## About DeviceID
+
+1. It will create a uuid string and save it to keychain for ios
+2. It will return mac address's MD5 (ADID when >= API Level23) for android
+3. return SystemInfo.deviceUniqueIdentifier for other platforms.
+
+
+
+## How to use
 
 It is so easy to use it on unity:
 
-```
+1. Add event handle
 
-	string deviceID = DeviceIDManager.GetDeviceID();
-```
+	```
 
-Note:
+        DeviceIDManager.deviceIDHandler += (string deviceid) => {
+
+            if (!string.IsNullOrEmpty(deviceid))
+            {
+                deviceID.text = deviceid;
+            }
+            
+        };
+	```
+
+2. Call 'GetDeviceID' method
+
+	```
+	DeviceIDManager.GetDeviceID();
+	```
+
+## Note
+
 You'd better change the value of macroes in KeyChain.mm for ios:
 
 ```
@@ -16,10 +42,3 @@ You'd better change the value of macroes in KeyChain.mm for ios:
 #define IDENTIFIER      @"my_app_identifier"
 #define ACOUNT_ID       @"my_account"
 ```
-
-# About DeviceID
-
-1. It will create a uuid string and save it to keychain for ios
-2. It will return mac address for android
-3. return SystemInfo.deviceUniqueIdentifier for other platforms.
-
